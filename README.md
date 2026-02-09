@@ -6,7 +6,7 @@ This project serves as a template for this design week challenge.
 
 Each of the Viswall's monitors are identical. The Viswall is a 5x2 matrix of monitors, though each the 2x2 set at either end is used as logically as a single monitor. Below is information about the displays.
 
-![viswall](.\docs\img\viswall.png)
+![viswall](https://github.com/MohawkRaphaelT/w26-design-week-template/blob/main/docs/img/viswall.png)
 
 ( ! ) I will confirm these details as soon as I can confirm the dimensions.
 
@@ -27,7 +27,7 @@ https://docs.unity3d.com/6000.0/Documentation/Manual/MultiDisplay.html
 
 In Unity, you must create multiple Game windows and select which display output to view.
 
-![editor-displays-info](.\docs\img\editor-displays-info.png)
+![editor-displays-info](https://github.com/MohawkRaphaelT/w26-design-week-template/blob/main/docs/img/editor-displays-info.png)
 
 You must run a bit of code to activate the monitor manually when playing from a build. The project provides the [ConfigureDisplays.cs](https://github.com/MohawkRaphaelT/w26-design-week-template/blob/main/DW%20W26%20Unity/Assets/Scripts/ConfigureDisplays.cs) script and game object to do this on scene `Start`. 
 
@@ -49,11 +49,11 @@ Input System manual: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.1
 
 The project is set up so that when a new input device is registered (when a button is pressed) it spawns in a Player prefab into the scene. This is managed via Unity's `PlayerInputManager` currently on the "Player Input Manager" object in the sample scene. The script [PlayerSpawn](https://github.com/MohawkRaphaelT/w26-design-week-template/blob/main/DW%20W26%20Unity/Assets/Scripts/PlayerSpawn.cs) attached to this object is called when the [PlayerInputManager](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.18/api/UnityEngine.InputSystem.PlayerInputManager.html) registers a new input device. `PlayerSpawn`'s function `OnPlayerJoined` is "magically" called by virtue of being attached to the same game object and handles assigning the information such as the `PlayerInput` (action map / input device) to the player object. You can change the messaging method by changing the top drop-down on `PlayerInputManager`.
 
-![player input manager](.\docs\img\player input manager.png)
+![player input manager](https://github.com/MohawkRaphaelT/w26-design-week-template/blob/main/docs/img/player%20input%20manager.png)
 
 `PlayerInputManager` can only clone one prefab set in the Inspector. If you want different roles for players, consider spawning in an object that then spawns in the correct prefab and uses the correct action map. 
 
-![player prefab](.\docs\img\player prefab.png)
+![player prefab](https://github.com/MohawkRaphaelT/w26-design-week-template/blob/main/docs/img/player%20prefab.png)
 
 The [PlayerController](https://github.com/MohawkRaphaelT/w26-design-week-template/blob/main/DW%20W26%20Unity/Assets/Scripts/PlayerController.cs) script manages the player prefabs. It has a few functions called by `PlayerSpawn` as the player is being spawned, such as assigning the input device, player number, and player color.
 
@@ -63,7 +63,7 @@ The newer Input System has a lot of ways to get input. I tried to provide the so
 
 First, you need to define the possible actions and tie them to types of input. You can find the asset in your Assets database or via `Edit > Player Settings > Input System Package`.
 
-![action map](.\docs\img\action map.png)
+![action map](https://github.com/MohawkRaphaelT/w26-design-week-template/blob/main/docs/img/action%20map.png)
 
 Actions maps are the collections of actions for a logical unit (eg. player, UI), and each action is driven by a type of input, such as gamepad stick or keyboard button.
 
