@@ -4,7 +4,7 @@ This project serves as a template for this design week challenge.
 
 ## 1. Multi-Display Rendering
 
-Each of the Viswall's monitors are identical. The Viswall is a 5x2 matrix of monitors, though each the 2x2 set at either end is used as logically as a single monitor. Below is information about the displays.
+Each of the Viswall's monitors are identical. The Viswall is a 5x2 matrix of monitors, though each 2x2 set at either end is used as a single monitor. Below is information about the displays.
 
 ![viswall](https://github.com/MohawkRaphaelT/w26-design-week-template/blob/main/docs/img/viswall.png)
 
