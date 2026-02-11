@@ -8,8 +8,7 @@ public class TurretControl : MonoBehaviour
     [field: SerializeField] public Camera cam { get; private set; }
     [field: SerializeField] public float LookSpeed { get; private set; }
 
-    //Look varis
-    public float lookSensitivity;
+    
     //For smooth movement
     public float smoothing = 1.5f;
 
@@ -70,8 +69,8 @@ public class TurretControl : MonoBehaviour
         //The turret body and player camera are separately controlled. 
         //The turret turns on the x axis while the camera turns on the y axis.
         //This prevents the axis of rotation from effecting each other.
-        transform.Rotate(new Vector3(0, x * 5, 0));
-        cam.transform.Rotate(new Vector3(-y * 5, 0, 0));
+        transform.Rotate(new Vector3(0, x * LookSpeed, 0));
+        cam.transform.Rotate(new Vector3(-y * LookSpeed, 0, 0));
 
         //Do raycast
         RaycastHit hit;
