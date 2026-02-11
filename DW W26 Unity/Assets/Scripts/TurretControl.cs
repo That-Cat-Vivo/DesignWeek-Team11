@@ -15,13 +15,16 @@ public class TurretControl : MonoBehaviour
 
     private Vector3 lookValue;
 
-    //Raycast info
+    //What Raycast will detect
     LayerMask targetSurface;
+
+
     
 
     //Player Input
     private PlayerInput PlayerInput;
     private InputAction InputActionLook;
+    private InputAction InputActionFire;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,12 +44,15 @@ public class TurretControl : MonoBehaviour
         // Here I specify "Player/" but it in not required if assigning the action map in PlayerInput inspector.
         
         InputActionLook = playerInput.actions.FindAction($"Player/Look");
+        InputActionFire = playerInput.actions.FindAction($"Player/Attack");
     }
     
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        
+
         if (rb == null)
         {
             Debug.Log($"{name}'s {nameof(PlayerController)}.{nameof(Rigidbody)} is null.");
@@ -70,16 +76,30 @@ public class TurretControl : MonoBehaviour
         //Do raycast
         RaycastHit hit;
 
+        //If ray hits a collider on the obstacle layer Firing is possible
         if (Physics.Raycast(cam.transform.position, cam.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, targetSurface))
         {
             Debug.DrawRay(cam.transform.position, cam.transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
             Debug.Log("Hitting");
+
+            //If the attack button is pressed, destroy the detected object.
+            if (InputActionFire.IsPressed())
+            {
+                Destroy(hit.collider.gameObject);
+            }
+
         }
 
+        //If ray does not hit an obstacle, do nothing.
         else
         {
             Debug.DrawRay(cam.transform.position, cam.transform.TransformDirection(Vector3.forward) * 1000, Color.white);
             Debug.Log("NotHitting");
+            
         }
+
+        
+        
+
     }
 }
