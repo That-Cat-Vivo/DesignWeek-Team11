@@ -43,21 +43,24 @@ public class TurretControl : MonoBehaviour
         // Here I specify "Player/" but it in not required if assigning the action map in PlayerInput inspector.
         
         InputActionLook = playerInput.actions.FindAction($"Player/Look");
-        InputActionFire = playerInput.actions.FindAction($"Player/Attack");
+        InputActionFire = playerInput.actions.FindAction($"Player/Shoot");
     }
     
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        if (InputActionFire.IsPressed())
+        {
+            Debug.Log("Shot");
+        }
 
         if (rb == null)
         {
             Debug.Log($"{name}'s {nameof(PlayerController)}.{nameof(Rigidbody)} is null.");
             return;
         }
-        //calculations for turret rotation
+        Debug.Log("BeingRead");
 
         //lookValue acts as a storage point for the player's input.
         lookValue = InputActionLook.ReadValue<Vector2>();

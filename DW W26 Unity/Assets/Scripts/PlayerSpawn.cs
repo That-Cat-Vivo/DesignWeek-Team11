@@ -9,6 +9,8 @@ public class PlayerSpawn : MonoBehaviour
 
     public TurretControl turret;
 
+    public CarController car;
+
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         int maxPlayerCount = Mathf.Min(SpawnPoints.Length, PlayerColors.Length);
@@ -43,11 +45,12 @@ public class PlayerSpawn : MonoBehaviour
         // Assign incoming input to correlating conroller
         if (PlayerCount == 1)
         {
-            turret.AssignPlayerInputDevice(playerInput);
+            car.AssignPlayerInputDevice(playerInput);
+            
         }
         else if (PlayerCount == 2)
         {
-
+            turret.AssignPlayerInputDevice(playerInput);
         }
 
     }
