@@ -11,6 +11,11 @@ public class PlayerSpawn : MonoBehaviour
 
     public CarController car;
 
+    public GameObject D1Title;
+    public GameObject D2Title;
+    public GameObject D1Text;
+    public GameObject D2Text;
+
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         int maxPlayerCount = Mathf.Min(SpawnPoints.Length, PlayerColors.Length);
@@ -46,11 +51,14 @@ public class PlayerSpawn : MonoBehaviour
         if (PlayerCount == 1)
         {
             car.AssignPlayerInputDevice(playerInput);
-            
+            D1Title.SetActive(false);
+            D1Text.SetActive(false);
         }
         else if (PlayerCount == 2)
         {
             turret.AssignPlayerInputDevice(playerInput);
+            D2Title.SetActive(false);
+            D2Text.SetActive(false);
         }
 
     }
