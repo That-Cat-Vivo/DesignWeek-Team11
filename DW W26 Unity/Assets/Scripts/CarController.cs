@@ -31,7 +31,7 @@ public class CarController : MonoBehaviour
     public float topSpeed;
 
     //vari refering to enum
-    private driveTrain driveTrainRef= driveTrain.RWD;
+    public driveTrain driveTrainRef= driveTrain.RWD;
 
     //Separate WheelColliders and Transforms. WheelColliders have built-in funcionality for position and rotation, so we will use that for the meshes.
     //DON'T ASSIGN A WHEELCOLLIDER TO A MESH.
@@ -80,12 +80,7 @@ public class CarController : MonoBehaviour
             Debug.Log($"{name}'s {nameof(PlayerController)}.{nameof(Rigidbody)} is null.");
             return;
         }
-        Debug.Log("Being Read");
-        if (InputActionGas.IsPressed())
-        {
-            v = 15;
-            Debug.Log("Gas");
-        }
+        
         //Call four funcions instead of writing everything in here
         PlayerInput();
         HandleMotor();
@@ -103,7 +98,7 @@ public class CarController : MonoBehaviour
 
         if(InputActionGas.IsPressed())
         {
-            v = 15;
+            v = 1;
             Debug.Log("Gas");
         }
 
