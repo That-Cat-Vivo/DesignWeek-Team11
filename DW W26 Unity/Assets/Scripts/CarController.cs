@@ -58,6 +58,7 @@ public class CarController : MonoBehaviour
     private InputAction InputActionTurn;
     private InputAction InputActionGas;
     private InputAction InputActionBrake;
+    private InputAction InputActionRestart;
 
     // Start is called before the first frame update
     void Start()
@@ -75,7 +76,7 @@ public class CarController : MonoBehaviour
         InputActionTurn = playerInput.actions.FindAction($"Player/Move");
         InputActionGas = playerInput.actions.FindAction($"Player/Shoot");
         InputActionBrake = playerInput.actions.FindAction($"Player/Crouch");
-        
+        InputActionRestart = playerInput.actions.FindAction($"Player/Jump");
     }
     // Update is called once per frame
     void Update()
@@ -123,6 +124,11 @@ public class CarController : MonoBehaviour
             SceneManager.LoadScene("RallyMap");
         }
 
+        if (InputActionRestart.IsPressed())
+        {
+            SceneManager.LoadScene("RallyMap");
+        }
+        
     }
     private void HandleMotor()
     {
