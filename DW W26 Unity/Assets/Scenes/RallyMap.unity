@@ -571,7 +571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d32b0400a3fd8f848b1ec111024b2777, type: 3}
       propertyPath: m_Name
-      value: APOCALYPSECAR_49512
+      value: PacoCar
       objectReference: {fileID: 0}
     - target: {fileID: 6317578925029434746, guid: d32b0400a3fd8f848b1ec111024b2777, type: 3}
       propertyPath: m_Enabled
@@ -584,9 +584,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d32b0400a3fd8f848b1ec111024b2777, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 265318811343671640}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d32b0400a3fd8f848b1ec111024b2777, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5714175110024859101}
@@ -1287,11 +1284,11 @@ Transform:
   m_GameObject: {fileID: 4459525955830163560}
   serializedVersion: 2
   m_LocalRotation: {x: 0.052674185, y: -0, z: -0, w: 0.99861175}
-  m_LocalPosition: {x: 0, y: 2.3, z: -9.61}
+  m_LocalPosition: {x: 0, y: 2.6, z: -10.7361145}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 683479151}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 6.039, y: 0, z: 0}
 --- !u!1001 &645563490823048589
 PrefabInstance:
@@ -1511,6 +1508,7 @@ GameObject:
   - component: {fileID: 265318811343671640}
   - component: {fileID: 7982018701791188647}
   - component: {fileID: 6865690510461914317}
+  - component: {fileID: 7982018701791188648}
   m_Layer: 0
   m_Name: Display1 Camera
   m_TagString: Untagged
@@ -1733,6 +1731,20 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &7982018701791188648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4459525955830163560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 955aaf44dc4088f479718d2efc716b0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraAngles:
+  - {x: 0, y: 2.6, z: 9}
 --- !u!33 &8092086082870615066
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1838,4 +1850,5 @@ SceneRoots:
   - {fileID: 1776859962}
   - {fileID: 78086115}
   - {fileID: 22008354}
+  - {fileID: 265318811343671640}
   - {fileID: 668424735}
