@@ -11,6 +11,8 @@ public class PlayerSpawn : MonoBehaviour
 
     public CarController car;
 
+    public Timer timer;
+
     public GameObject D1Title;
     public GameObject D2Title;
     public GameObject D1Text;
@@ -59,6 +61,7 @@ public class PlayerSpawn : MonoBehaviour
             turret.AssignPlayerInputDevice(playerInput);
             D2Title.SetActive(false);
             D2Text.SetActive(false);
+            timer.GameStart();
         }
 
     }

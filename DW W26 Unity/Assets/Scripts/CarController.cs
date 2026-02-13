@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,14 @@ public class CarController : MonoBehaviour
 {
     //Rigidbody Vari
     private Rigidbody rb;
+    
+
+    //Scores
+    public GameObject ScoreD1;
+    public GameObject ScoreD2;
+
+    //Timer
+    public Timer timer;
 
     //Steering. One vari to hold math, one to set vals
     private float currentSteeringAngle; //This holds math
@@ -42,7 +51,7 @@ public class CarController : MonoBehaviour
     //Vari for GM
     private GameManager gm;
 
-    
+    private bool goalReached;
 
     //Player Input
     private PlayerInput PlayerInputX;
@@ -88,8 +97,8 @@ public class CarController : MonoBehaviour
         HandleSteering();
         UpdateWheels();
         
+        
     }
-    
     
     private void PlayerInput()
     {
@@ -109,6 +118,11 @@ public class CarController : MonoBehaviour
         }
 
             isBraking = InputActionBrake.IsPressed();
+        if(goalReached && InputActionBrake.IsPressed())
+        {
+            SceneManager.LoadScene("RallyMap");
+        }
+
     }
     private void HandleMotor()
     {
@@ -201,16 +215,25 @@ public class CarController : MonoBehaviour
         //Check tp see what the player collided with.
         //if they hit the goal flag, call Lap() on the GM
         //If they hit the checkpoint, set checkpointPassed to true.
-        if (other.gameObject.name == "Goal")
+        if (other.gameObject.layer == 8)
         {
             //Lap() is a public func in th GM
-            gm.Lap();
+            timer.GameEnd();
+            ScoreD1.SetActive(true);
+            ScoreD2.SetActive(true);
+            goalReached = true;
         }
 
         if (other.gameObject.name == "Checkpoint")
         {
             gm.checkpointPassed = true;
         }
+
+        if (other.gameObject.layer == 7 || other.gameObject.layer == 6)
+        {
+            SceneManager.LoadScene("RallyMap");
+        }
+        
     }
 
 
